@@ -34,6 +34,9 @@
   .hover\:bg-accent-hover:hover {
     background-color: var(--color-accent-hover);
   }
+  .hover\:text-accent-hover:hover {
+    color: var(--color-accent-hover);
+  }
 
   @keyframes accordion-down {
     from { height: 0; }
