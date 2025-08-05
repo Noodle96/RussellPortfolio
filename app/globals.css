@@ -55,6 +55,24 @@
   .animate-accordion-up {
     animation: accordion-up 0.2s ease-out;
   }
+  .border-gradient-accent {
+    border: 4px solid transparent;
+    border-image: linear-gradient(to right, var(--color-accent), transparent) 1;
+  }
+  .stair-border-glow {
+    position: relative;
+    z-index: 1;
+  }
+
+  .stair-border-glow::before {
+    content: "";
+    position: absolute;
+    inset: -1px; /* Espacio del borde */
+    z-index: -1;
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--color-accent), transparent, var(--color-accent));
+    opacity: 0.8;
+  }
 }
 
 /* 🌐 Base: configuración responsive y tipografía */
