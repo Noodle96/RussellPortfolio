@@ -26,8 +26,16 @@
   .text-accent {
     color: var(--color-accent);
   }
+  /* in classname group-hover:bg-accent */
+  .group:hover .group-hover\:text-accent {
+    color: var(--color-accent);
+  }
 
   .bg-accent {
+    background-color: var(--color-accent);
+  }
+  /* in classname group-hover:bg-accent */
+  .group:hover .group-hover\:bg-accent {
     background-color: var(--color-accent);
   }
   .border-accent {
@@ -38,6 +46,7 @@
     background-color: var(--color-accent-hover);
     color: var(--color-primary);
   }
+  /* in classname hover:text-accent-hover  */
   .hover\:text-accent-hover:hover {
     color: var(--color-accent-hover);
   }
@@ -76,6 +85,14 @@
     border-radius: 8px;
     background: linear-gradient(135deg, var(--color-accent), transparent, var(--color-accent));
     opacity: 0.8;
+  }
+  .text-outline{
+    -webkit-text-stroke: 1px #FFFFFF;
+  }
+  /* in classname group-hover:text-outline-hover */
+  .group:hover .group-hover\:text-outline-hover {
+    -webkit-text-stroke: 1px var(--color-accent);
+    transition: all 0.5s ease-in-out;
   }
 }
 
