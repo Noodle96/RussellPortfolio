@@ -1,5 +1,5 @@
 "use client";
-import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle, SheetDescription } from "./ui/sheet";
+import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle, SheetDescription, SheetClose } from "./ui/sheet";
 import Link from "next/link";
 import {CiMenuFries} from "react-icons/ci";
 import { usePathname } from "next/navigation";
@@ -30,21 +30,26 @@ const MobileNav = () => {
                 </SheetHeader>
                 {/* logo */}
                 <div className="mt-32 mb-40  text-center text-2xl">
-                    <Link href="/">
-                        <h1 className="text-4xl font-semibold">
-                            Russell<span className="text-accent">.</span>
-                        </h1>
-                    </Link>
+                    <SheetClose asChild>
+                        <Link href="/">
+                            <h1 className="text-4xl font-semibold">
+                                Russell<span className="text-accent">.</span>
+                            </h1>
+                        </Link>
+                    </SheetClose>
                 </div>
 
                 {/* nav */}
                 <nav className="flex flex-col justify-center items-center gap-8">
                     {links.map( (link, index) => {
                         return(
-                            <Link href={link.path} key={index} className={`${link.path === pathname && "text-accent border-b-2"}
-                                capitalize font-medium hover:text-accent-hover transition-all `}>
-                                {link.name}
-                            </Link>
+                            <SheetClose asChild key={index}>
+                                <Link href={link.path} key={index} className={`${link.path === pathname && "text-accent border-b-2"}
+                                                                            capitalize font-medium hover:text-accent-hover transition-all `}
+                                >
+                                    {link.name}
+                                </Link>
+                            </SheetClose>
                         );
                     } )}
                 </nav>
