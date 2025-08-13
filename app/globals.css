@@ -41,6 +41,16 @@
   .border-accent {
     border-color: var(--color-accent);
   }
+  .focus\:border-accent:focus{
+    border-color: var(--color-accent);
+  }
+  .focus\:bg-accent:focus{
+    background-color: var(--color-accent);
+    color: var(--color-primary)
+  }
+  .focus-visible\:ring-accent:focus-visible{
+    --tw-ring-color: var(--color-accent);
+  }
 
   .hover\:bg-accent-hover:hover {
     background-color: var(--color-accent-hover);
