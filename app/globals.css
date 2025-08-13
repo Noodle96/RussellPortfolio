@@ -94,6 +94,15 @@
     -webkit-text-stroke: 1px var(--color-accent);
     transition: all 0.5s ease-in-out;
   }
+  /* data-[state=active]:bg-accent  */
+  .data-\[state\=active\]\:bg-accent[data-state="active"] {
+    background-color: var(--color-accent);
+    transition: all 0.8s ease-in-out;
+  }
+  /* data-[state=active]:text-primary */
+  .data-\[state\=active\]\:text-primary[data-state="active"] {
+    color: var(--color-primary);
+  }
 }
 
 /* 🌐 Base: configuración responsive y tipografía */
