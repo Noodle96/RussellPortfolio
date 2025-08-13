@@ -67,7 +67,6 @@ const Services = () => {
 
                 </motion.div>
             </div>
-            <div className='bg-red-700'>test</div>
         </section>
     )
 }
