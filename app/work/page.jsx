@@ -9,40 +9,7 @@ import Link from "next/link";
 import Image from "next/image";
 import WorkSliderBtns from '@/components/WorkSliderBtns';
 
-const projects = [
-    {
-        num: "01",
-        category: "frontend",
-        title: "Project 1",
-        description: "This is a description of project 1. It showcases frontend development skills.",
-        stack: [{ name: "Html5" }, { name: "Css 3" }, { name: "Javascript" }],
-        image: "/assets/work/thumb1.png",
-        live: "",
-        github: "",
-    },
-    {
-        num: "02",
-        category: "fullstack",
-        title: "E-Commerce Platform",
-        description:
-            "A fully responsive e-commerce application with product listings, cart functionality, and payment integration. Built with modern frameworks and REST APIs.",
-        stack: [{ name: "Next.js" }, { name: "Tailwind CSS" }, { name: "Node.js" }, { name: "MongoDB" }],
-        image: "/assets/work/thumb2.png",
-        live: "",
-        github: "",
-    },
-    {
-        num: "03",
-        category: "data-visualization",
-        title: "Real-Time Crypto Dashboard",
-        description:
-            "Interactive dashboard displaying real-time cryptocurrency prices and market trends using public APIs and advanced charting libraries.",
-        stack: [{ name: "React" }, { name: "D3.js" }, { name: "WebSocket" }],
-        image: "/assets/work/thumb3.png",
-        live: "",
-        github: "",
-    },
-];
+import { projects } from '@/lib/workData';
 
 const Work = () => {
     const [project, setProject] = useState(projects[0]);
@@ -55,7 +22,7 @@ const Work = () => {
         // setProject(projects[currentIndex]);
         setProject(projects[idx]);
         // console.log(`Current slide index: ${idx}`);
-        
+
     };
     return (
         <motion.section
@@ -173,7 +140,7 @@ const Work = () => {
                             })}
                             {/* slider buttons */}
                             <WorkSliderBtns
-                                containerStyles="flex gap-2 absolute right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between  xl:w-max xl:justify-none px-4 py-2" 
+                                containerStyles="flex gap-2 absolute right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between  xl:w-max xl:justify-none px-4 py-2"
                                 btnStyles="bg-accent hover:bg-accent-hover text-primary text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all rounded-full hover:scale-110"
                             />
                         </Swiper>

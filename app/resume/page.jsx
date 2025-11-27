@@ -1,188 +1,51 @@
 "use client";
-import { FaHtml5, FaCss3, FaJs, FaReact, FaFigma, FaNodeJs, FaPython } from "react-icons/fa";
-import { SiTailwindcss, SiNextdotjs } from "react-icons/si";
+import {
+    FaHtml5,
+    FaCss3,
+    FaJs,
+    FaReact,
+    FaFigma,
+    FaNodeJs,
+    FaPython
+} from "react-icons/fa";
 
-// about data
-const about = {
-    title: "About me",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. \
-                Laboriosam nostrum distinctio odio officia. Enim ad dolore deserunt eos,\
-                eligendi soluta explicabo veritatis id accusantium dolor, dolores corrupti ab ex nihil.",
-    info: [
-        {
-            fieldName: "Name",
-            fieldValue: "Russell Tito",
-        },
-        {
-            fieldName: "Phone",
-            fieldValue: "(+51) 905 626 886",
-        },
-        {
-            fieldName: "Experience",
-            fieldValue: "8+ Years",
-        },
-        {
-            fieldName: "Nationality",
-            fieldValue: "Peruvian",
-        },
-        {
-            fieldName: "Freelance",
-            fieldValue: "Available",
-        },
-        {
-            fieldName: "Email",
-            fieldValue: "jorgealfredo.jatc@gmail.com",
-        },
-        {
-            fieldName: "Languages",
-            fieldValue: "English, Spanish",
-        },
-
-    ],
-};
-
-// experience data
-const experience = {
-    icon: '/assets/resume/badge.svg',
-    title: "My experience",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. \
-                Laboriosam nostrum distinctio odio officia. Enim ad dolore deserunt eos,\
-                eligendi soluta explicabo veritatis id accusantium dolor, dolores corrupti ab ex nihil.",
-    items: [
-        {
-            company: "Company One",
-            position: "Data Scientist",
-            duration: "2023 - present",
-        },
-        {
-            company: "Company Two",
-            position: "Java Developer",
-            duration: "2022 - 2023",
-        },
-        {
-            company: "Company Three",
-            position: "Frontend Developer",
-            duration: "2021 - 2022",
-        },
-        {
-            company: "Company Four",
-            position: "Backend Developer",
-            duration: "2020 - 2021",
-        },
-        {
-            company: "Company Five",
-            position: "Unity 3D Developer",
-            duration: "2019 - 2020",
-        },
-        {
-            company: "Company Six",
-            position: "C# Developer",
-            duration: "2018 - 2019",
-        },
-    ],
-};
-
-// eduacation data
-const education = {
-    icon: '/assets/resume/cap.svg',
-    title: "My education",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. \
-                Laboriosam nostrum distinctio odio officia. Enim ad dolore deserunt eos,\
-                eligendi soluta explicabo veritatis id accusantium dolor, dolores corrupti ab ex nihil.",
-    items: [
-        {
-            institution: "University",
-            degree: "Bachelor of Science in Computer Science",
-            duration: "2021 - 2025",
-        },
-        {
-            institution: "High School",
-            degree: "High School Diploma",
-            duration: "2017 - 2021",
-        },
-        {
-            institution: "Online Course",
-            degree: "Full Stack Web Development",
-            duration: "2020 - 2021",
-        },
-        {
-            institution: "Online Course",
-            degree: "Data Science and Machine Learning",
-            duration: "2022 - 2023",
-        },
-        {
-            institution: "Online Course",
-            degree: "Game Development with Unity",
-            duration: "2019 - 2020",
-        },
-        {
-            institution: "Online Course",
-            degree: "C# Programming for Beginners",
-            duration: "2018 - 2019",
-        },
-        {
-            institution: "Online Course",
-            degree: "Java Programming for Beginners",
-            duration: "2022 - 2023",
-        },
-        {
-            institution: "Online Course",
-            degree: "Python Programming for Beginners",
-            duration: "2023 - 2024",
-        },
-    ],
-};
-
-// skills data
-const skills = {
-    title: "My skills",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. \
-                Laboriosam nostrum distinctio odio officia. Enim ad dolore deserunt eos,\
-                eligendi soluta explicabo veritatis id accusantium dolor, dolores corrupti ab ex nihil.",
-    skillList: [
-        {
-            icon: <FaHtml5 />,
-            name: "HTML5",
-        },
-        {
-            icon: <FaCss3 />,
-            name: "CSS3",
-        },
-        {
-            icon: <FaJs />,
-            name: "JavaScript",
-        },
-        {
-            icon: <FaReact />,
-            name: "React",
-        },
-        {
-            icon: <SiNextdotjs />,
-            name: "Next.js",
-        },
-        {
-            icon: <SiTailwindcss />,
-            name: "Tailwind CSS",
-        },
-        {
-            icon: <FaFigma />,
-            name: "Figma",
-        },
-        {
-            icon: <FaNodeJs />,
-            name: "Node.js",
-        },
-        {
-            icon: <FaPython />,
-            name: "Python",
-        },
-    ],
-};
+import {
+    SiTailwindcss,
+    SiNextdotjs
+} from "react-icons/si";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger
+} from "@/components/ui/tooltip";
+
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { motion } from "framer-motion";
+
+import {
+    about,
+    experience,
+    education,
+    skills
+} from "@/lib/resumeData";
+
+// Mapa de keys -> iconos
+const skillIcons = {
+    html: <FaHtml5 />,
+    css: <FaCss3 />,
+    js: <FaJs />,
+    react: <FaReact />,
+    next: <SiNextdotjs />,
+    tailwind: <SiTailwindcss />,
+    figma: <FaFigma />,
+    node: <FaNodeJs />,
+    python: <FaPython />,
+};
+
 const Resume = () => {
     return (
         <motion.div
@@ -280,7 +143,7 @@ const Resume = () => {
                                                     <Tooltip>
                                                         <TooltipTrigger className="w-full h-[150px] bg-[#232329]  rounded-xl flex justify-center items-center group">
                                                             <div className="text-5xl group-hover:text-accent transition-all duration-800 ">
-                                                                {skill.icon}
+                                                                {skillIcons[skill.icon]}
                                                             </div>
                                                         </TooltipTrigger>
                                                         <TooltipContent>
