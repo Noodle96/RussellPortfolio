@@ -2,7 +2,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { notFound } from "next/navigation";
+import { useParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -22,13 +22,18 @@ import { FaArrowLeft } from "react-icons/fa";
 import WorkSliderBtns from "@/components/WorkSliderBtns";
 import { projects } from "@/lib/workData";
 
-const ProjectPage = ({ params }) => {
-    const { slug } = params;
+const ProjectPage = ({ }) => {
+    const params = useParams();
+    const slug = params?.slug;
 
     const project = projects.find((p) => p.slug === slug);
 
     if (!project) {
-        notFound();
+        return (
+            <section className="min-h-[80vh] flex items-center justify-center">
+                <p className="text-white/60">Proyecto no encontrado.</p>
+            </section>
+        );
     }
 
     // ahora el estado representa el SLIDE actual del proyecto
@@ -66,12 +71,12 @@ const ProjectPage = ({ params }) => {
                         <div className="flex flex-col gap-[10px]">
                             {/* número y categoría */}
                             <div className="group flex flex-col gap-[15px]">
-                                <div className="text-8xl leading-none font-extrabold text-transparent text-outline">
-                                    {project.num}
+                                <div className="text-7xl leading-none font-extrabold text-transparent text-outline">
+                                    {currentSlide.id}
                                 </div>
 
-                                <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
-                                    {project.category} project
+                                <h2 className="text-[30px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
+                                    {project.title}
                                 </h2>
 
                                 {/* título del slide + descripción del slide */}
@@ -83,7 +88,7 @@ const ProjectPage = ({ params }) => {
                             </div>
 
                             {/* stack */}
-                            <ul className="flex flex-wrap gap-2">
+                            {/* <ul className="flex flex-wrap gap-2">
                                 {project.stack.map((item, index) => (
                                     <li
                                         key={index}
@@ -92,7 +97,7 @@ const ProjectPage = ({ params }) => {
                                         {item.name}
                                     </li>
                                 ))}
-                            </ul>
+                            </ul> */}
 
                             {/* separador */}
                             <div className="border border-white/20" />
@@ -157,7 +162,7 @@ const ProjectPage = ({ params }) => {
                                             <Image
                                                 src={slide.image}
                                                 fill
-                                                className="object-cover group-hover:scale-105 transition-all duration-500"
+                                                className="object-fill group-hover:scale-105 transition-all duration-500"
                                                 alt={slide.title}
                                             />
                                         </div>
