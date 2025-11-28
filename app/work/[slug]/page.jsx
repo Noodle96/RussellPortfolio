@@ -79,12 +79,26 @@ const ProjectPage = ({ }) => {
                                     {project.title}
                                 </h2>
 
+                                <div className='border-b border-white/20 w-full'></div>
+
                                 {/* título del slide + descripción del slide */}
                                 <h3 className="text-2xl font-semibold text-accent">
                                     {currentSlide.title}
                                 </h3>
 
-                                <p className="text-white/60">{currentSlide.description}</p>
+                                {/* <p className="text-white/60">{currentSlide.description}</p> */}
+                                {Array.isArray(currentSlide.description) ? (
+                                    <ul className="mt-2 space-y-2 text-white/60">
+                                        {currentSlide.description.map((item, idx) => (
+                                            <li key={idx} className="flex gap-2">
+                                                <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-white/40" />
+                                                <span>{item.description_i}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                ) : (
+                                    <p className="text-white/60">{currentSlide.description}</p>
+                                )}
                             </div>
 
                             {/* stack */}
@@ -100,7 +114,7 @@ const ProjectPage = ({ }) => {
                             </ul> */}
 
                             {/* separador */}
-                            <div className="border border-white/20" />
+                            <div className="border-b border-white/20" />
 
                             {/* botones */}
                             <div className="flex items-center gap-4">
